@@ -1,0 +1,212 @@
+/* Corps global */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 40px;
+    color: #2c3e50;
+}
+
+/* Section Étudiant */
+.student-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSection 0.8s ease forwards;
+}
+
+/* Effet de survol pour la section */
+.student-section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation pour la section */
+@keyframes fadeInSection {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Titres */
+h2 {
+    font-family: 'Roboto', sans-serif; /* Police moderne et lisible */
+    font-size: 32px; /* Taille un peu plus grande pour attirer l'attention */
+    font-weight: 700; /* Poids fort pour le rendre accrocheur */
+    color: #1abc9c; /* Couleur verte professionnelle et apaisante */
+    text-align: center; /* Centré pour une mise en page équilibrée */
+    position: relative; /* Pour ajouter des effets comme un soulignement ou une décoration */
+    padding-bottom: 10px; /* Espace en bas du titre pour l'effet décoratif */
+    letter-spacing: 1px; /* Espacement entre les lettres pour une meilleure lisibilité */
+    text-transform: uppercase; /* Mettre tout en majuscules pour un effet fort et pro */
+    margin-bottom: 40px; /* Espacement sous le titre pour ne pas écraser le contenu en dessous */
+    opacity: 0; /* Initialement invisible pour l'animation */
+    transform: translateY(-20px); /* Déplacement initial vers le haut */
+    animation: slideIn 0.5s ease forwards; /* Application de l'animation */
+}
+
+/* Animation pour l'effet de soulignement */
+h2::after {
+    content: "";
+    width: 100px; /* Longueur de la ligne de soulignement */
+    height: 4px; /* Épaisseur de la ligne */
+    background-color: #3498db; /* Bleu contrastant avec la couleur du texte */
+    display: block;
+    margin: 0 auto; /* Centrer la ligne */
+    margin-top: 10px; /* Espacement avec le texte */
+    border-radius: 2px; /* Légèrement arrondi pour plus de finesse */
+    opacity: 0; /* Initialement invisible pour l'animation */
+    transform: scaleX(0); /* Scale pour faire apparaître la ligne */
+    animation: underlineIn 0.5s ease forwards; /* Application de l'animation */
+    animation-delay: 0.3s; /* Délai pour que l'animation de la ligne se produise après celle du texte */
+}
+
+/* Cléframes pour l'animation de mouvement */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Déplacement vers le haut */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Retour à la position originale */
+    }
+}
+
+/* Cléframes pour l'animation du soulignement */
+@keyframes underlineIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0); /* Ligne invisible au départ */
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1); /* Ligne pleine apparente */
+    }
+}
+
+
+/* Champs de sélection et recherche */
+.filter-section, .search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+select, #search-input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    width: 250px;
+}
+
+select:focus, #search-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+    transform: scale(1.02);
+}
+
+/* Animation fade-in pour le champ de recherche */
+#search-input {
+    opacity: 0;
+    animation: fadeInSearch 0.8s ease forwards;
+}
+
+@keyframes fadeInSearch {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Liste des emplois du temps */
+#emplois-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#emplois-list li {
+    background: #ecf0f1;
+    border: 1px solid #dcdde1;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.6s ease forwards;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#emplois-list li:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #e1f7d5;
+    transform: scale(1.02);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Lien de téléchargement */
+#emplois-list a {
+    position: relative;
+    color: #1abc9c;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#emplois-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #1abc9c;
+    transition: width 0.3s ease;
+}
+
+#emplois-list a:hover::after {
+    width: 100%;
+}
+
+/* Boutons */
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}

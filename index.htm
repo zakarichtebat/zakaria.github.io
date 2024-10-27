@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Emploi du Temps - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="stayle.css">
+</head>
+<body>
+
+    <div class="admin-section">
+        <h2>Gestion des Emplois du Temps pour Admin</h2>
+        <p>Ajouter des emplois du temps :</p>
+
+        <div class="admin-controls">
+            <label for="filiere">Filière :</label>
+            <select id="filiere">
+                <option value="">Sélectionnez une filière</option>
+                <option value="informatique">Informatique</option>
+                <option value="gestion">Gestion</option>
+                <option value="web marcotingue">web marcotingue</option>
+            </select>
+
+            <label for="semestre">Semestre :</label>
+            <select id="semestre">
+                <option value="">Sélectionnez un semestre</option>
+                <option value="s1">Semestre 1</option>
+                <option value="s2">Semestre 2</option>
+                <option value="s3">Semestre 3</option>
+                <option value="s4">Semestre 4</option>
+            </select>
+
+            <!-- Input de fichier pour le PDF -->
+            <input type="file" id="emploi-pdf" accept="application/pdf" title="e">
+
+            <!-- Bouton pour ajouter l'emploi -->
+            <button onclick="addEmploi()">Ajouter</button>
+        </div>
+
+        <div class="search-section">
+            <h3>Rechercher et télécharger un emploi du temps :</h3>
+            <input type="text" id="search-input" placeholder="Rechercher un emploi..." oninput="searchEmplois()">
+        </div>
+
+        <div class="emploi-display">
+            <h3>Emplois du temps existants :</h3>
+            <ul id="emplois-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js">  </script>
+
+</body>
+</html>
